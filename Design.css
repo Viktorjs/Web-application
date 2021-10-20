@@ -1,0 +1,568 @@
+@import url('https://cdn.jsdelivr.net/gh/t1m0n/air-datepicker/dist/css/datepicker.min.css');
+@import url('https://cdn.jsdelivr.net/npm/timepicker@1.12.0/jquery.timepicker.min.css');
+
+:root {
+  --primary-color: #302ae6;
+  --secondary-color: #536390;
+  --font-color: #424242;
+  --bg-color: #fff;
+  --heading-color: #292922;
+  --line-color: #d4d4d4;
+}
+
+[data-theme="dark"] {
+  --primary-color: #9a97f3;
+  --secondary-color: #818cab;
+  --font-color: #e1e1ff;
+  --bg-color: #12121b;
+  --heading-color: #818cab;
+  --line-color: #252533;
+}
+
+html,
+body {
+  background-color: var(--bg-color);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: Raleway;
+  box-sizing: border-box;
+}
+
+#startpage {
+  display: block;
+  background-color: var(--bg-color);
+  margin: 0 auto;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 800px;
+  position: absolute;
+}
+
+#flake {
+  width: 100px;
+  height: 100px;
+}
+
+
+
+.btn {
+  font-size: 24px;
+  background-color: #ea5a31 !important;
+  background-image: -webkit-gradient(linear,
+      right top,
+      left top,
+      from(#177aac),
+      to(#ff5120)) !important;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn:hover {
+  font-size: 24px;
+  background-color: #ea5a31 !important;
+  background-image: -webkit-gradient(linear,
+      right top,
+      left top,
+      from(red)) !important;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.themeSwitcher {
+  background-color: #ea5a31 !important;
+  background-image: -webkit-gradient(linear,
+      right top,
+      left top,
+      from(#177aac),
+      to(#ff5120)) !important;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  top: 20px;
+  left: 85px;
+  position: absolute;
+}
+
+.logbtn,
+.logbtn2 {
+  background: none;
+  color: var(--font-color);
+  font-size: 16px;
+}
+
+.logbtn:hover,
+.logbtn2:hover {
+  background-color: #ea5a31 !important;
+  background-image: -webkit-gradient(linear,
+      right top,
+      left top,
+      from(#177aac),
+      to(#ff5120)) !important;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.form {
+  width: 50%;
+  position: relative;
+  height: 50px;
+  overflow: hidden;
+}
+
+.form input {
+  width: 100%;
+  height: 100%;
+  color: #000;
+  padding-top: 16px;
+  border: none;
+}
+
+.form label {
+  position: absolute;
+  bottom: 0px;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid black;
+}
+
+.form label::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -1px;
+  height: 100%;
+  width: 100%;
+  border-bottom: 2px solid #049bff;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.content-name {
+  position: absolute;
+  bottom: 5px;
+  left: 0%;
+  transition: all 0.3s ease;
+}
+
+.form input:focus+.label-name .content-name,
+.form input:valid+.label-name .content-name {
+  transform: translateY(-150%);
+  font-size: 14px;
+  color: #049bff;
+}
+
+.form input:focus+.label-name::after,
+.form input:valid+.label-name::after {
+  transform: translateX(0%);
+}
+
+h1 {
+  background-color: #ea5a31 !important;
+  background-image: -webkit-gradient(linear,
+      right top,
+      left top,
+      from(#177aac),
+      to(#ff5120)) !important;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+
+
+h2 {
+  font-size: 42px;
+  text-align: center;
+  background-color: #ea5a31 !important;
+  background-image: -webkit-gradient(linear,
+      right top,
+      left top,
+      from(#177aac),
+      to(#ff5120)) !important;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page {
+  padding: 16px;
+  background-color: #fff;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 20px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: #f1f1f1;
+  outline: none;
+}
+
+hr {
+  border: 1px solid var(--line-color);
+  margin-bottom: 25px;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  padding-top: 10px;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  width: 100%;
+  font-family: raleway;
+}
+
+#navbar {
+
+  position: absolute;
+  top: 0;
+  left: 1000px;
+  font-size: 25px;
+  padding: 10px;
+
+}
+
+li {
+  display: block;
+  display: inline;
+  padding-left: 80px;
+
+}
+
+
+.tbknapp {
+  background-color: #bbbbbb;
+}
+
+/*
+button:hover,
+.tbknapp:hover {
+    opacity: .8;
+}
+*/
+
+a {
+  color: #049bff;
+}
+
+.darkmode-wrapper {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.darkmode {
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  width: 60px;
+  height: 34px;
+}
+
+.darkmode input {
+  display: none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: 0.4s;
+  width: 26px;
+}
+
+input:checked+.slider {
+  background-color: #66bb6a;
+}
+
+input:checked+.slider:before {
+  transform: translateX(26px);
+}
+
+.slider.move {
+  border-radius: 34px;
+}
+
+.slider.move:before {
+  border-radius: 50%;
+}
+
+.signin {
+  text-align: center;
+}
+
+#page1 {
+  display: none;
+  background-color: var(--bg-color);
+  margin: 0 auto;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  max-width: 800px;
+  position: absolute;
+}
+
+@media only screen and (min-width: 800px) {
+  #page1 {
+    width: 800px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+#page2 {
+  display: none;
+  background-color: var(--bg-color);
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  max-width: 800px;
+  position: absolute;
+}
+
+@media only screen and (min-width: 800px) {
+  #page2 {
+    width: 800px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+#myModal {
+  font-size: 21px;
+  animation: fadein 1.5s;
+}
+
+#myBtn {
+  color: var(--secondary-color);
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+td {
+  padding: 8px;
+}
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+.kundvagncontent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-self: center;
+}
+
+h3 {
+  margin: 0;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  padding: 20px;
+  width: 750px;
+  border: 1px solid #888;
+  position: relative;
+}
+
+@media only screen and (max-width: 800px) {
+  .modal-content {
+    width: 90%;
+    padding-right: 10px;
+  }
+}
+
+tr:nth-child(even) {
+  background: #ccc;
+}
+
+tr:nth-child(odd) {
+  background: #fff;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#login {
+  display: none;
+  background-color: var(--bg-color);
+  margin: 0 auto;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 800px;
+  position: absolute;
+}
+
+@media only screen and (min-width: 800px) {
+  #login {
+    width: 800px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+#myCanvas2 {
+  position: absolute;
+  display: block;
+}
+
+#myCanvas3 {
+  position: absolute;
+  display: block;
+  top: 0;
+
+}
+
+.filip {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+#CustomerOutputDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-weight: bolder;
+  background-color: #ea5a31 !important;
+  background-image: -webkit-gradient(linear,
+      right top,
+      left top,
+      from(#4f798f),
+      to(#ff5120)) !important;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+b {
+  color: var(--secondary-color);
+}
+
+.b1 {
+  background-color: #ea5a31 !important;
+  background-image: -webkit-gradient(linear,
+      right top,
+      left top,
+      from(#177aac),
+      to(#ff5120)) !important;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p {
+  color: var(--secondary-color);
+}
+
+#dropdown,
+#subDropdown {
+  padding-top: 10px;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  background: #f1f1f1;
+  width: 50%;
+}
+
+#booking-date,
+#tp {
+  padding-top: 10px;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  background: #f1f1f1;
+  width: 50%;
+}
+
+.left {
+  text-align: left;
+}
