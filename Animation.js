@@ -1,5 +1,4 @@
-<script>
-    $(document).ready(function () {
+$(document).ready(function () {
       $(".btn").click(function () {
         $("#login").fadeIn(800);
       });
@@ -58,9 +57,7 @@
         $("#fornamn").css("background", "#f1f1f1");
       });
     });
-  </script>
 
-  <script>
     var ctx2;
 
     // Array to hold snowflakes
@@ -326,4 +323,3 @@
         ctx = elem.getContext('2d');
       }
     }
-  </script>
